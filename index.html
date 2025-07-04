@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VistaDevs- Upgrade your Journey of buisness with us!</title>
+     <!-- In the head section, add this if you want to preload the logo (optional) -->
+<link rel="preload" href="./asssets/vistadevs2.png" as="image">
+<link rel="contact" href="./contact.html">
+
     <style>
         /* Global Styles */
         :root {
@@ -23,11 +27,29 @@
         }
         
         body {
-            background-color: var(--light);
+            font-size: 20px;background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
         }
         
+    .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.logo-img {
+    width: 50px; /* Adjust to match your logo's aspect ratio */
+    height: 50px;
+}
+
+
+.logo span {
+    color: var(--accent);
+}
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -36,7 +58,7 @@
         
         /* Header Styles */
         header {
-            background-color: white;
+            background-color: transparent;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
@@ -51,8 +73,14 @@
             padding: 20px 0;
         }
         
+        .logo image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
         .logo {
-            font-size: 24px;
+            font-family: fantasy,sans-serif;
+            font-size: 25px;
             font-weight: 700;
             color: var(--primary);
         }
@@ -92,7 +120,7 @@
         
         .cta-button:hover {
             background-color: var(--secondary);
-            color: white;
+            color: rgb(75, 135, 192);
         }
         
         /* Hero Section */
@@ -418,14 +446,17 @@
     <!-- Header -->
     <header>
         <div class="container">
+            
             <nav>
-                <div class="logo">Vista<span>devs</span></div>
+<div class="logo">
+    <img src="./asssets/vistadevs2.png"  class="logo-img">
+    <span class="logo-text">Vista</span><span>devs</span>
+</div>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#login" class="cta-button">Login</a></li>
+                    <li><a href="./contact.html" class="cta-button">contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -434,10 +465,10 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>unlock your brands potentials from the new platform!</h1>
-            <p>we provide you the best designs for your product and Web development builds the digital bridges that connect people to information and services online. App development puts powerful tools right in our hands, turning ideas into interactive experiences on our devices.</p>
+            <h1>Unlock your brands potentials from the new platform!</h1>
+            <p>We provide you the best designs for your product and Web development builds the digital bridges that connect people to information and services online. App development puts powerful tools right in our hands, turning ideas into interactive experiences on our devices.</p>
             <div class="hero-buttons">
-                <a href="#courses" class="cta-button">Browse services</a>
+                <a href="#speciality" class="cta-button">Browse services</a>
                 <a href="#features" class="secondary-button">Learn More</a>
             </div>
         </div>
@@ -494,7 +525,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our speciality</h2>
-                <p>start and upgrade your buisness with us!</p>
+                <p>Start and upgrade your buisness with us!</p>
             </div>
             <div class="courses-grid">
                 <div class="course-card">
@@ -505,14 +536,14 @@
                         <h3>Web Developer expertized in</h3>
                         <p> HTML, CSS, JavaScript</p>
                         <div class="course-meta">
-                            <span>as per project strength</span>
+                            <span>As per project strength</span>
                             <span>Frontend</span>
                         </div>
                     </div>
                 </div>
                 <div class="course-card">
                     <div class="course-image" style="background-color: #FF6584;">
-                        Python
+                        App development
                     </div>
                     <div class="course-content">
                         <h3>Python and many more!</h3>
@@ -586,11 +617,12 @@
     <section class="cta-section">
         <div class="container">
             <h2>Ready to Transform Your Career?</h2>
-            <p>Join thousands of clients who have accelerated their buisness with our coding skills.</p>
-            <button class="white-button">Start with us  Today</button>
+            <p> Thousands of clients who have accelerated their buisness with joining us.</p>
+            <a class="white-button" href="./contact.html" rel="contact">Start with us  Today</a>
         </div>
     </section>
-    
+
+   
 
     <!-- Footer -->
     <footer id="contact">
@@ -623,17 +655,14 @@
                     <ul class="footer-links">
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Press</a></li>
+                        
                         <li><a href="#">Affiliates</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Support</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="./contact.html">Contact Us</a></li>
                         <li><a href="#">Community</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms of Service</a></li>
