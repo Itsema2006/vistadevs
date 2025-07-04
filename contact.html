@@ -1,0 +1,515 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - VistaDevs</title>
+    <style>
+        /* Reuse your existing styles */
+        :root {
+            --primary: #6C63FF;
+            --secondary: #4D44DB;
+            --accent: #FF6584;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6C757D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            font-size: 20px;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            padding-top: 80px; /* For fixed header */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles (same as index.html) */
+        header {
+            background-color: transparent;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 25px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        /* Contact Page Specific Styles */
+        .contact-hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(255, 101, 132, 0.1) 100%);
+        }
+        
+        .contact-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .contact-hero p {
+            font-size: 20px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            padding: 60px 0;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form h2 {
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .contact-info {
+            padding: 20px;
+        }
+        
+        .contact-info h2 {
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .info-icon {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+        
+        .info-content h3 {
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+        
+        .info-content p, .info-content a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .info-content a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+       
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-hero h1 {
+                font-size: 36px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            
+            <nav>
+<div class="logo">
+    <img src="./asssets/vistadevs2.png"  class="logo-img">
+    <span class="logo-text">Vista</span><span>devs</span>
+</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="./contact.html" class="cta-button">contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>Have questions or want to discuss a project? We'd love to hear from you!</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <div class="container">
+        <div class="contact-container">
+            <!-- Contact Form -->
+            <!-- In the contact form section -->
+<div class="contact-form">
+    <h2>Send Us a Message</h2>
+    <form action="https://formspree.io/f/vistadevs936@gmail.com" method="POST">
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="_replyto" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number (Optional)</label>
+            <input type="tel" id="phone" name="phone" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="service">Service Interested In</label>
+            <select id="service" name="service" class="form-control">
+                <option value="">Select a service</option>
+                <option value="web">Web Development</option>
+                <option value="app">App Development</option>
+                <option value="design">UI/UX Design</option>
+                <option value="video">Video Editing</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" class="form-control" required></textarea>
+        </div>
+        <input type="hidden" name="_subject" value="New Contact Form Submission">
+        <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+</div>
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">📱</div>
+                    <div class="info-content">
+                        <h3>Phone</h3>
+                        <p>+91 9766644838</p>
+                        <p>+91 9823516070</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-content">
+                        <h3>Email</h3>
+                        <p><a href="mailto:vistadevs936@gmail.com">vistadevs936@gmail.com</a></p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-content">
+                        <h3>Location</h3>
+                        <p>Kolhapur, India</p>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><span>📸</span></a>
+                    <a href="https://discord.gg/pJpXuGbx" aria-label="Discord"><span>💬</span></a>
+                    <a href="#www.linkedin.com/in/prayuja-jadhav-39a500259" aria-label="LinkedIn"><span>🔗</span></a>
+                    
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+
+       <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Vistadevs</h3>
+                    <p>Empowering the next generation of buisnessmen through high-quality coding .</p>
+                   <p>contacts:
+                     <text style="color: var(--accent);">+91 9766644838 , +91 9823516070</text><br>
+                        <text style="color: var(--accent);">vistadevs936@gmailcom</text><br>
+                   </p>
+                    <p>Follow us on:
+                
+                        <a href="#" style="color: var(--accent);">Instagram</a><br>
+                        <a href="https://discord.gg/pJpXuGbx" style="color: var(--accent);">discord</a><br>
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Web Development</a></li> 
+                        <li><a href="#">Mobile Development</a></li>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">video editing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        
+                        <li><a href="#">Affiliates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="./contact.html">Contact Us</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Vistadevs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        service: form.service.value,
+        message: form.message.value
+    };
+
+    const statusDiv = document.getElementById('form-status');
+    statusDiv.innerHTML = '<p style="color: var(--primary);">Sending your message...</p>';
+
+    try {
+        const response = await fetch('http://localhost:3001/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            statusDiv.innerHTML = '<p style="color: green;">Message sent successfully! We\'ll contact you soon.</p>';
+            form.reset();
+        } else {
+            statusDiv.innerHTML = `<p style="color: var(--accent);">Error: ${data.message}</p>`;
+        }
+    } catch (error) {
+        statusDiv.innerHTML = '<p style="color: var(--accent);">There was a problem sending your message. Please try again later.</p>';
+        console.error('Error:', error);
+    }
+});
+</script>
+</body>
+</html>
