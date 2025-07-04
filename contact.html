@@ -472,44 +472,5 @@
             </div>
         </div>
     </footer>
-<script>
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const form = e.target;
-    const formData = {
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value,
-        service: form.service.value,
-        message: form.message.value
-    };
-
-    const statusDiv = document.getElementById('form-status');
-    statusDiv.innerHTML = '<p style="color: var(--primary);">Sending your message...</p>';
-
-    try {
-        const response = await fetch('http://localhost:3001/send-email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        });
-
-        const data = await response.json();
-
-        if (data.success) {
-            statusDiv.innerHTML = '<p style="color: green;">Message sent successfully! We\'ll contact you soon.</p>';
-            form.reset();
-        } else {
-            statusDiv.innerHTML = `<p style="color: var(--accent);">Error: ${data.message}</p>`;
-        }
-    } catch (error) {
-        statusDiv.innerHTML = '<p style="color: var(--accent);">There was a problem sending your message. Please try again later.</p>';
-        console.error('Error:', error);
-    }
-});
-</script>
 </body>
 </html>
